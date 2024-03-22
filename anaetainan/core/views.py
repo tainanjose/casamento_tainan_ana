@@ -4,24 +4,15 @@ import logging
 import json
 
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-
-logger = logging.getLogger(__name__)
-from django.views.decorators.http import require_http_methods
-
-from ..commons.django_views_utils import ajax_login_required
-
-
-from .service import tasks_svc
-
 from django.views.generic import TemplateView
 from django.conf import settings
 
+logger = logging.getLogger(__name__)
+
+from .service import tasks_svc
+from ..fotos.models import Fotos
 
 
-
-@csrf_exempt
-@ajax_login_required
 def add_task(request):
     logger.info("API add new task.")
     body = json.loads(request.body)
@@ -44,13 +35,6 @@ def add_task(request):
 
 
 
-@require_http_methods(["GET"])
-@ajax_login_required
-
-def list_tasks(request):
-    logger.info("API list tasks")
-    tasks = tasks_svc.list_tasks()
-    return JsonResponse({"tasks": tasks})
 
 
 class ShowHomeView(TemplateView):
@@ -62,6 +46,17 @@ class ShowHomeView(TemplateView):
         if settings.DJ_CASAMENTO_MODO_SAVE_THE_DATE:
             self.template_name = "core/home_savethedate.html"
 
+        context['DJ_CASAMENTO_MODO_SAVE_THE_DATE'] = settings.DJ_CASAMENTO_MODO_SAVE_THE_DATE
+        context['DJ_CASAMENTO_DE_UM_LADO'] = settings.DJ_CASAMENTO_DE_UM_LADO
+        context['DJ_CASAMENTO_DO_OUTRO'] = settings.DJ_CASAMENTO_DO_OUTRO
+        context['DJ_CASAMENTO_DATA'] = settings.DJ_CASAMENTO_DATA
+        context['DJ_CASAMENTO_LOCAL'] = settings.DJ_CASAMENTO_LOCAL
+        context['DJ_CASAMENTO_CIDADE'] = settings.DJ_CASAMENTO_CIDADE
+        context['DJ_CASAMENTO_DATE'] = settings.DJ_CASAMENTO_DATE
+        context['DJ_CASAMENTO_JA_ACONTECEU'] = settings.DJ_CASAMENTO_JA_ACONTECEU
+        context['DJ_CASAMENTO_EMAIL_CONTATO'] = settings.DJ_CASAMENTO_EMAIL_CONTATO
+        context['DJ_CASAMENTO_FONE_CONTATO'] = settings.DJ_CASAMENTO_FONE_CONTATO
+        context['DJ_CASAMENTO_SERVER'] = settings.DJ_CASAMENTO_SERVER
         context['fotos'] = Fotos.objects.all().order_by('ordem')
 
         return context

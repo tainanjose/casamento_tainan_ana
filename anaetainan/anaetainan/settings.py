@@ -90,7 +90,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "anaetainan.base.middlewares.DjavueApiErrorHandlingMiddleware",
 ]
 
 # CORS
@@ -98,16 +97,16 @@ MIDDLEWARE = [
 #     before_common = MIDDLEWARE.index("django.middleware.common.CommonMiddleware")
 #     MIDDLEWARE.insert(before_common, "corsheaders.middleware.CorsMiddleware")
 
-DJ_CASAMENTO_MODO_SAVE_THE_DATE = True
+DJ_CASAMENTO_MODO_SAVE_THE_DATE = False
 
 # Nome dos noivos
 DJ_CASAMENTO_DE_UM_LADO = 'Ana'
 DJ_CASAMENTO_DO_OUTRO = 'Tainan'
 
 # Dia e local
-DJ_CASAMENTO_DATA = '2024-07-04 17:00:00'.replace('-', '/')
+DJ_CASAMENTO_DATA = '2024-11-16 17:00:00'.replace('-', '/')
 DJ_CASAMENTO_LOCAL = u'Capela Nossa Sra de Fátima'
-DJ_CASAMENTO_CIDADE = u'São José dos Campos'
+DJ_CASAMENTO_CIDADE = u'Juiz de Fora/MG'
 DJ_CASAMENTO_DATE = datetime.strptime(DJ_CASAMENTO_DATA, '%Y/%m/%d %H:%M:%S')
 
 # Outros
