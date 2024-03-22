@@ -2,9 +2,9 @@ import os
 from django.db import connection
 from django.http import JsonResponse
 
+
 def dapau(request):
     raise Exception("break on purpose")
-
 
 
 def status(request):
@@ -19,4 +19,3 @@ def status(request):
             "git_hash": git_hash,
         }
     )
-

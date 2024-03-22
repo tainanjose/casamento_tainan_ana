@@ -76,6 +76,7 @@ LOCAL_APPS = [
     "anaetainan.core",
     "anaetainan.themes",
     "anaetainan.fotos",
+    "anaetainan.listapresentes",
     "anaetainan.fornecedores",
 ]
 
@@ -100,20 +101,20 @@ MIDDLEWARE = [
 DJ_CASAMENTO_MODO_SAVE_THE_DATE = False
 
 # Nome dos noivos
-DJ_CASAMENTO_DE_UM_LADO = 'Ana'
-DJ_CASAMENTO_DO_OUTRO = 'Tainan'
+DJ_CASAMENTO_DE_UM_LADO = "Ana"
+DJ_CASAMENTO_DO_OUTRO = "Tainan"
 
 # Dia e local
-DJ_CASAMENTO_DATA = '2024-11-16 17:00:00'.replace('-', '/')
-DJ_CASAMENTO_LOCAL = u'Capela Nossa Sra de Fátima'
-DJ_CASAMENTO_CIDADE = u'Juiz de Fora/MG'
-DJ_CASAMENTO_DATE = datetime.strptime(DJ_CASAMENTO_DATA, '%Y/%m/%d %H:%M:%S')
+DJ_CASAMENTO_DATA = "2024-11-16 17:00:00".replace("-", "/")
+DJ_CASAMENTO_LOCAL = "Capela Nossa Sra de Fátima"
+DJ_CASAMENTO_CIDADE = "Juiz de Fora/MG"
+DJ_CASAMENTO_DATE = datetime.strptime(DJ_CASAMENTO_DATA, "%Y/%m/%d %H:%M:%S")
 
 # Outros
 DJ_CASAMENTO_JA_ACONTECEU = datetime.today() >= DJ_CASAMENTO_DATE
-DJ_CASAMENTO_EMAIL_CONTATO = 'casamento@meudominio.com'
-DJ_CASAMENTO_FONE_CONTATO = '12 991 991 000'
-DJ_CASAMENTO_SERVER = 'mariaejose.com.br'
+DJ_CASAMENTO_EMAIL_CONTATO = "casamento@meudominio.com"
+DJ_CASAMENTO_FONE_CONTATO = "12 991 991 000"
+DJ_CASAMENTO_SERVER = "mariaejose.com.br"
 
 
 ROOT_URLCONF = "anaetainan.anaetainan.urls"

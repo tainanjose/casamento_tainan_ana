@@ -8,7 +8,6 @@ from django.views.decorators.csrf import csrf_exempt
 logger = logging.getLogger(__name__)
 
 
-
 @csrf_exempt
 def login(request):
     username = request.POST["username"]
@@ -24,14 +23,12 @@ def login(request):
     return JsonResponse(user_dict, safe=False)
 
 
-
 def logout(request):
     if request.method.lower() != "post":
         raise Exception("Logout only via post")
     logger.info(f"API logout: {request.user.username}")
     auth.logout(request)
     return JsonResponse({})
-
 
 
 def whoami(request):

@@ -10,6 +10,7 @@ def ajax_login_required(view_func):
             return view_func(request, *args, **kwargs)
         resp = json.dumps({"not_authenticated": True})
         return HttpResponse(resp, content_type="application/json", status=401)
+
     return wrapper
 
 
@@ -20,6 +21,7 @@ def ajax_superuser_required(view_func):
             return view_func(request, *args, **kwargs)
         resp = json.dumps({"not_authenticated": True})
         return HttpResponse(resp, content_type="application/json", status=401)
+
     return wrapper
 
 
@@ -30,4 +32,5 @@ def ajax_staff_required(view_func):
             return view_func(request, *args, **kwargs)
         resp = json.dumps({"not_authenticated": True})
         return HttpResponse(resp, content_type="application/json", status=401)
+
     return wrapper

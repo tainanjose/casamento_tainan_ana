@@ -16,7 +16,6 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
 
 
 urlpatterns = [
@@ -25,6 +24,16 @@ urlpatterns = [
         "fornecedores/",
         include("anaetainan.fornecedores.urls"),
     ),
-    path("", include("anaetainan.core.urls"),),
-
+    path(
+        "lista/",
+        include("anaetainan.listapresentes.urls"),
+    ),
+    path(
+        "roteiros/",
+        include("anaetainan.roteiros.urls"),
+    ),
+    path(
+        "",
+        include("anaetainan.core.urls"),
+    ),
 ]
