@@ -19,19 +19,6 @@ class ShowHomeView(TemplateView):
         if settings.DJ_CASAMENTO_MODO_SAVE_THE_DATE:
             self.template_name = "core/home_savethedate.html"
 
-        context[
-            "DJ_CASAMENTO_MODO_SAVE_THE_DATE"
-        ] = settings.DJ_CASAMENTO_MODO_SAVE_THE_DATE
-        context["DJ_CASAMENTO_DE_UM_LADO"] = settings.DJ_CASAMENTO_DE_UM_LADO
-        context["DJ_CASAMENTO_DO_OUTRO"] = settings.DJ_CASAMENTO_DO_OUTRO
-        context["DJ_CASAMENTO_DATA"] = settings.DJ_CASAMENTO_DATA
-        context["DJ_CASAMENTO_LOCAL"] = settings.DJ_CASAMENTO_LOCAL
-        context["DJ_CASAMENTO_CIDADE"] = settings.DJ_CASAMENTO_CIDADE
-        context["DJ_CASAMENTO_DATE"] = settings.DJ_CASAMENTO_DATE
-        context["DJ_CASAMENTO_JA_ACONTECEU"] = settings.DJ_CASAMENTO_JA_ACONTECEU
-        context["DJ_CASAMENTO_EMAIL_CONTATO"] = settings.DJ_CASAMENTO_EMAIL_CONTATO
-        context["DJ_CASAMENTO_FONE_CONTATO"] = settings.DJ_CASAMENTO_FONE_CONTATO
-        context["DJ_CASAMENTO_SERVER"] = settings.DJ_CASAMENTO_SERVER
         context["fotos"] = Fotos.objects.all().order_by("ordem")
 
         return context

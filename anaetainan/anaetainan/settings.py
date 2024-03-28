@@ -131,6 +131,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "anaetainan.core.context_processors.configuracoes_processor",
             ],
         },
     },
