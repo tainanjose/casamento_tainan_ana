@@ -5,9 +5,7 @@ from django.db import models
 class Presente(models.Model):
     titulo = models.CharField(_("Título"), blank=True, max_length=128, default="")
     descricao = models.TextField(_("Descrição do presente"), blank=True, default="")
-    imagem = models.ImageField(
-        _("imagem"), upload_to="presentes", blank=True, default=""
-    )
+    imagem = models.URLField(_("imagem"), blank=True, default="", max_length=1024)
     valor = models.DecimalField(
         _("Valor"), max_digits=12, decimal_places=2, default=0.00
     )
