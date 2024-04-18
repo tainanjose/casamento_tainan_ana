@@ -20,7 +20,6 @@ coverage.xml
 *.sqlite3
 pip-log.txt
 pip-delete-this-directory.txt
-static/
 staticfiles/
 /mariaejose.log
 /apimock/node_modules
