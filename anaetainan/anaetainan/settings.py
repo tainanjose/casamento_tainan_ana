@@ -114,9 +114,13 @@ DJ_CASAMENTO_DATE = datetime.strptime(DJ_CASAMENTO_DATA, "%Y/%m/%d %H:%M:%S")
 # Outros
 DJ_CASAMENTO_JA_ACONTECEU = datetime.today() >= DJ_CASAMENTO_DATE
 DJ_CASAMENTO_EMAIL_CONTATO = "casamento@meudominio.com"
-DJ_CASAMENTO_FONE_CONTATO = "12 991 991 000"
+DJ_CASAMENTO_FONE_CONTATO = "12 991 991 002"
 DJ_CASAMENTO_SERVER = "mariaejose.com.br"
 
+# EMAIL
+DJ_EMAIL_NOTIFICATIONS = config("DJ_EMAIL_NOTIFICATIONS", default=False, cast=bool)
+DJ_EMAIL_FROM = "anaetainan@example.com"
+DJ_EMAIL_DISTRIBUTION_LIST = ["anaetainan@example.com"]
 
 ROOT_URLCONF = "anaetainan.anaetainan.urls"
 
