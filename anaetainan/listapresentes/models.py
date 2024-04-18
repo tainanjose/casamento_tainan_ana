@@ -19,24 +19,14 @@ class Presente(models.Model):
 
 
 class IntencaoDePresente(models.Model):
-    BRADESCO = "BRADESCO"
-    ITAU = "ITAU"
-    SANTANDER = "SANTANDER"
-    NUBANK = "NUBANK"
-    BANCO_CHOICES = [
-        (BRADESCO, "Bradesco"),
-        (ITAU, "Itaú"),
-        (SANTANDER, "Santander"),
-        (NUBANK, "Nubank"),
-    ]
     data = models.DateTimeField(auto_now_add=True, editable=False)
     presente = models.ForeignKey(
         Presente, verbose_name=_("presente"), on_delete=models.CASCADE
     )
     nome = models.CharField(_("Seu nome"), default="", max_length=128)
     email = models.EmailField(_("e-mail"), max_length=128)
-    banco = models.CharField(
-        _("Transferir para o banco"), choices=BANCO_CHOICES, default=ITAU, max_length=16
+    banco = models.ForeignKey(
+        "ContaParaRecebimento", on_delete=models.CASCADE, null=True
     )
     mensagem = models.TextField(_("Mensagem para o casal"), blank=True, default="")
     valor = models.DecimalField(
@@ -66,3 +56,19 @@ class IntencaoDePresente(models.Model):
     @property
     def centavos(self):
         return float(str(self.valor - int(self.valor))[1:])
+
+
+class ContaParaRecebimento(models.Model):
+    nome_banco = models.CharField(_("Banco"), blank=True, max_length=128, default="")
+    agencia = models.CharField(_("Agencia"), blank=True, max_length=32, default="")
+    conta = models.CharField(_("Conta"), blank=True, max_length=32, default="")
+    favorecido = models.CharField(_("Favorecido"), blank=True, max_length=64, default="")
+    cpf = models.CharField(_("CPF"), blank=True, max_length=32, default="")
+    chave_pix = models.CharField(_("Chave PIX"), blank=True, max_length=128, default="")
+
+    class Meta:
+        verbose_name = _("Contas")
+        ordering = ("id",)
+
+    def __str__(self):
+        return f"{self.nome_banco}"
