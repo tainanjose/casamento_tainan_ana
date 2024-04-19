@@ -26,7 +26,7 @@ class IntencaoDePresenteCreateView(CreateView):
         presente = get_object_or_404(Presente, pk=self.kwargs["pk"])
         initial = {
             "presente": presente,
-            "contas": ContaParaRecebimento.objects.all().order_by('nome_banco'),
+            "contas": ContaParaRecebimento.objects.all().order_by("nome_banco"),
         }
         return initial
 
@@ -41,7 +41,10 @@ class IntencaoDePresenteCreateView(CreateView):
 
         if settings.DJ_EMAIL_NOTIFICATIONS:
             email_body = "{0} teve uma intenção de presente {1} ({2}, {3})".format(
-                self.object.nome, self.object.presente, self.object.valor, self.object.banco
+                self.object.nome,
+                self.object.presente,
+                self.object.valor,
+                self.object.banco,
             )
 
             title = f"{settings.DJ_CASAMENTO_DE_UM_LADO} & {settings.DJ_CASAMENTO_DO_OUTRO} - Presente"
@@ -63,5 +66,5 @@ class IntencaoDePresenteConfirmacaoView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['contas'] = ContaParaRecebimento.objects.all().order_by('nome_banco')
+        context["contas"] = ContaParaRecebimento.objects.all().order_by("nome_banco")
         return context

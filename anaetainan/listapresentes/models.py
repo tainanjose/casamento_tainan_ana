@@ -62,7 +62,9 @@ class ContaParaRecebimento(models.Model):
     nome_banco = models.CharField(_("Banco"), blank=True, max_length=128, default="")
     agencia = models.CharField(_("Agencia"), blank=True, max_length=32, default="")
     conta = models.CharField(_("Conta"), blank=True, max_length=32, default="")
-    favorecido = models.CharField(_("Favorecido"), blank=True, max_length=64, default="")
+    favorecido = models.CharField(
+        _("Favorecido"), blank=True, max_length=64, default=""
+    )
     cpf = models.CharField(_("CPF"), blank=True, max_length=32, default="")
     chave_pix = models.CharField(_("Chave PIX"), blank=True, max_length=128, default="")
 

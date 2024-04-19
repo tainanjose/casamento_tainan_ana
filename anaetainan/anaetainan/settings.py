@@ -99,7 +99,15 @@ MIDDLEWARE = [
 #     before_common = MIDDLEWARE.index("django.middleware.common.CommonMiddleware")
 #     MIDDLEWARE.insert(before_common, "corsheaders.middleware.CorsMiddleware")
 
-DJ_CASAMENTO_MODO_SAVE_THE_DATE = False
+DJ_CASAMENTO_MODO_SAVE_THE_DATE = config(
+    "DJ_CASAMENTO_MODO_SAVE_THE_DATE", default=True, cast=bool
+)
+DJ_CASAMENTO_STD_MSG1 = config("DJ_CASAMENTO_STD_MSG1", default="SAVE THE DATE")
+DJ_CASAMENTO_STD_MSG2 = config(
+    "DJ_CASAMENTO_STD_MSG2",
+    default="Are getting married and will be pleased with your presence!",
+)
+DJ_CASAMENTO_STD_MSG3 = config("DJ_CASAMENTO_STD_MSG3", default="Invitation to follow")
 
 # Nome dos noivos
 DJ_CASAMENTO_DE_UM_LADO = "Ana"

@@ -16,7 +16,11 @@ class ShowHomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(ShowHomeView, self).get_context_data(**kwargs)
 
-        if settings.DJ_CASAMENTO_MODO_SAVE_THE_DATE:
+        show_std = (
+            not self.request.user.is_superuser
+            and settings.DJ_CASAMENTO_MODO_SAVE_THE_DATE
+        )
+        if show_std:
             self.template_name = "core/home_savethedate.html"
 
         context["fotos"] = Fotos.objects.all().order_by("ordem")
