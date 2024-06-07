@@ -1,4 +1,4 @@
-name: anaetainan CI
+name: anaetainan CD
 
 on:
   workflow_dispatch:
