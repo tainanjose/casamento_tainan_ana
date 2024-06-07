@@ -43,3 +43,20 @@ jobs:
           push: true
           tags: "ghcr.io/${{ github.repository }}:${{ steps.branch-names.outputs.default_branch }}"
           #target: production
+
+
+      - name: Setup SSH
+        shell: bash
+        run: |
+         eval `ssh-agent -s`
+         mkdir -p /home/runner/.ssh/
+         touch /home/runner/.ssh/ansible.pem
+         echo -e "${{secrets.SSH_PRIVATE_KEY}}" > /home/runner/.ssh/ansible.pem
+         chmod 600 /home/runner/.ssh/ansible.pem
+         #ssh-keyscan -t rsa,dsa,ecdsa,ed25519 ${{secrets.SSH_HOST}} >> /home/runner/.ssh/known_hosts
+
+      - name: Deploy using docker run
+        shell: bash
+        run: |
+          cd devops/ansible/
+          ansible-playbook --private-key /home/runner/.ssh/ansible.pem -i hosts/prod playbook.yml --tags backend
