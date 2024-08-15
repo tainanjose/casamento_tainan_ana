@@ -102,6 +102,9 @@ MIDDLEWARE = [
 DJ_CASAMENTO_MODO_SAVE_THE_DATE = config(
     "DJ_CASAMENTO_MODO_SAVE_THE_DATE", default=True, cast=bool
 )
+DJ_CASAMENTO_EXIBIR_HOTEIS = config(
+   "DJ_CASAMENTO_EXIBIR_HOTEIS", default=True, cast=bool
+)
 DJ_CASAMENTO_STD_MSG1 = config("DJ_CASAMENTO_STD_MSG1", default="SAVE THE DATE")
 DJ_CASAMENTO_STD_MSG2 = config(
     "DJ_CASAMENTO_STD_MSG2",
@@ -115,15 +118,15 @@ DJ_CASAMENTO_DO_OUTRO = "Tainan"
 
 # Dia e local
 DJ_CASAMENTO_DATA = "2024-11-16 17:00:00".replace("-", "/")
-DJ_CASAMENTO_LOCAL = "Capela Nossa Sra de Fátima"
+DJ_CASAMENTO_LOCAL = "Capela Nossa Sra da Paz"
 DJ_CASAMENTO_CIDADE = "Juiz de Fora/MG"
 DJ_CASAMENTO_DATE = datetime.strptime(DJ_CASAMENTO_DATA, "%Y/%m/%d %H:%M:%S")
 
 # Outros
 DJ_CASAMENTO_JA_ACONTECEU = datetime.today() >= DJ_CASAMENTO_DATE
-DJ_CASAMENTO_EMAIL_CONTATO = "casamento@meudominio.com"
-DJ_CASAMENTO_FONE_CONTATO = "12 991 991 002"
-DJ_CASAMENTO_SERVER = "mariaejose.com.br"
+DJ_CASAMENTO_EMAIL_CONTATO = "contato@tabmarketing.com.br"
+DJ_CASAMENTO_FONE_CONTATO = "(32) 99142-1203"
+DJ_CASAMENTO_SERVER = "casamentobiaetainan.com.br"
 
 # EMAIL
 DJ_EMAIL_NOTIFICATIONS = config("DJ_EMAIL_NOTIFICATIONS", default=False, cast=bool)
