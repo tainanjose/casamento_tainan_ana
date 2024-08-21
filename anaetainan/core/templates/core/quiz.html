@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz do Casal</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background: url("https://i.pinimg.com/originals/39/c0/84/39c0848efb08dc5433457e3a627a7328.jpg")
+          no-repeat center center fixed;
+        background-size: cover;
+      }
+      .quiz-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Fundo branco com transparência */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      h1 {
+        text-align: center;
+        color: #4caf50;
+      }
+      .question {
+        margin-bottom: 20px;
+      }
+      .question h3 {
+        margin-bottom: 10px;
+      }
+      .question label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .submit-btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .result {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Fundo branco com transparência */
+        color: #003366; /* Ajuste a cor do texto conforme necessário */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      .result h2 {
+        color: #003366; /* Azul escuro */
+      }
+      .result p {
+        font-size: 1.2em;
+        color: #003366; /* Azul escuro */
+      }
+      .result .message {
+        font-size: 1.5em;
+        color: #003366; /* Azul escuro */
+        margin-bottom: 20px;
+      }
+      .stars {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      .stars span {
+        font-size: 2em;
+        color: gold; /* Cor dourada para as estrelas */
+        margin: 0 5px;
+      }
+      .timer {
+        text-align: center;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+      .ranking {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .button-container a {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      .button-container a:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quiz-container">
+      <h1>Quiz do Casal</h1>
+      <div class="timer" id="timer">
+        Tempo restante: <span id="time">60</span> segundos
+      </div>
+      <form id="quizForm">
+        <div class="question">
+          <h3>Qual é o seu nome?</h3>
+          <input type="text" id="nome" name="nome" required />
+        </div>
+        <div class="question">
+          <h3>Você é do time do noivo ou da noiva?</h3>
+          <label
+            ><input type="radio" name="time" value="Time do noivo" required />
+            Time do Noivo</label
+          >
+          <label
+            ><input type="radio" name="time" value="Time da noiva" required />
+            Time da Noiva</label
+          >
+        </div>
+        <div class="question">
+          <h3>Pergunta 1: Quantos anos o casal está junto?</h3>
+          <label><input type="radio" name="q1" value="A" /> A) 6 Anos</label>
+          <label><input type="radio" name="q1" value="B" /> B) 8 Anos</label>
+          <label><input type="radio" name="q1" value="C" /> C) 7 Anos</label>
+        </div>
+        <div class="question">
+          <h3>Pergunta 2: Qual o nome do cachorro deles?</h3>
+          <label><input type="radio" name="q2" value="A" /> A) Perigo</label>
+          <label><input type="radio" name="q2" value="B" /> B) Tuco</label>
+          <label><input type="radio" name="q2" value="C" /> C) Tinho</label>
+        </div>
+        <div class="question">
+          <h3>Pergunta 3: Com quantos anos eles começaram a namorar?</h3>
+          <label><input type="radio" name="q3" value="A" /> A) 15 e 17</label>
+          <label><input type="radio" name="q3" value="B" /> B) 14 e 15</label>
+          <label><input type="radio" name="q3" value="C" /> C) 18 e 20</label>
+        </div>
+        <div class="question">
+          <h3>Pergunta 4: Qual o número da casa deles?</h3>
+          <label><input type="radio" name="q4" value="A" /> A) 365</label>
+          <label><input type="radio" name="q4" value="B" /> B) 370</label>
+          <label><input type="radio" name="q4" value="C" /> C) 480</label>
+        </div>
+        <div class="question">
+          <h3>Pergunta 5: Qual time de futebol da Bia?</h3>
+          <label><input type="radio" name="q5" value="A" /> A) Flamengo</label>
+          <label><input type="radio" name="q5" value="B" /> B) Santos</label>
+          <label
+            ><input type="radio" name="q5" value="C" /> C) Fluminense</label
+          >
+        </div>
+        <div class="question">
+          <h3>Pergunta 6: Qual time de futebol o Tainan torce?</h3>
+          <label><input type="radio" name="q6" value="A" /> A) Flamengo</label>
+          <label><input type="radio" name="q6" value="B" /> B) Vasco</label>
+          <label
+            ><input type="radio" name="q6" value="C" /> C) Fluminense</label
+          >
+        </div>
+        <div class="question">
+          <h3>Pergunta 7: Qual a série favorita do casal?</h3>
+          <label
+            ><input type="radio" name="q7" value="A" /> A Grande Família</label
+          >
+          <label
+            ><input type="radio" name="q7" value="B" /> Big Bang Theory</label
+          >
+          <label
+            ><input type="radio" name="q7" value="C" /> Todo mundo odeia o
+            Chris</label
+          >
+        </div>
+        <button type="submit" class="submit-btn">Enviar</button>
+      </form>
+      <div class="result" id="result">
+        <div class="message">Eu fiz o Quiz do Casamento Ana & Tainan:</div>
+        <p>Sua pontuação: <span id="score"></span>/7</p>
+        <div class="stars" id="stars"></div>
+        <div class="button-container">
+          <a href="https://casamentobiaetainan.com.br/">Início</a>
+          <a href="https://casamentobiaetainan.com.br/lista/"
+            >Lista de Presentes</a
+          >
+        </div>
+      </div>
+      <div class="ranking" id="ranking">
+        <h2>Ranking</h2>
+        <ul id="rankingList"></ul>
+      </div>
+      <div class="feedback" id="feedback"></div>
+      <div class="thank-you" id="thankYou" style="display: none">
+        <h2>
+          Muito obrigado, <span id="userName"></span>! Compartilha com a gente o
+          seu resultado!
+        </h2>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+      let timeLeft = 60;
+      const timerElement = document.getElementById("time");
+      const timerInterval = setInterval(() => {
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          document.getElementById("quizForm").submit();
+        } else {
+          timerElement.textContent = --timeLeft;
+        }
+      }, 1000);
+
+      document
+        .getElementById("quizForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          clearInterval(timerInterval);
+          const correctAnswers = {
+            q1: "B",
+            q2: "C",
+            q3: "A",
+            q4: "B",
+            q5: "B",
+            q6: "A",
+            q7: "A",
+          };
+          let score = 0;
+          const formData = new FormData(event.target);
+          const userName = formData.get("nome");
+          const userTeam = formData.get("time");
+          for (const [question, answer] of Object.entries(correctAnswers)) {
+            if (formData.get(question) === answer) {
+              score++;
+            }
+          }
+          document.getElementById("userName").textContent = userName;
+          document.getElementById("score").textContent = score;
+          document.getElementById("quizForm").style.display = "none";
+          document.getElementById("result").style.display = "block";
+          document.getElementById("thankYou").style.display = "block";
+
+          // Update ranking
+          const rankingList = document.getElementById("rankingList");
+          const newRankingItem = document.createElement("li");
+          newRankingItem.textContent = `${userName} (${userTeam}): ${score}/7`;
+          rankingList.appendChild(newRankingItem);
+
+          // Sort ranking
+          const rankingItems = Array.from(rankingList.children);
+          rankingItems.sort((a, b) => {
+            const scoreA = parseInt(a.textContent.split(": ")[1].split("/")[0]);
+            const scoreB = parseInt(b.textContent.split(": ")[1].split("/")[0]);
+            return scoreB - scoreA;
+          });
+          rankingList.innerHTML = "";
+          rankingItems.forEach((item) => rankingList.appendChild(item));
+
+          document.getElementById("ranking").style.display = "block";
+
+          // Display stars
+          const starsElement = document.getElementById("stars");
+          starsElement.innerHTML = "";
+          for (let i = 0; i < score; i++) {
+            starsElement.innerHTML += "<span>★</span>"; // Estrela cheia
+          }
+          for (let i = score; i < 7; i++) {
+            starsElement.innerHTML += "<span>☆</span>"; // Estrela vazia
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -42,3 +42,6 @@ class ConfirmacaoRedirectView(RedirectView):
     def dispatch(self, request, *args, **kwargs):
         self.url = reverse("rsvp.confirmacaohome")
         return redirect(self.url)
+
+class QuizView(TemplateView):
+    template_name = "core/quiz.html"

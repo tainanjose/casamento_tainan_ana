@@ -97,9 +97,11 @@
                   >
                 </p>
                 <p>
-                  <a class="btn btn-warning" href="{% url 'core.apps' %}"
-                    >Aplicativos de casamento</a
-                  >
+                  {% if DJ_CASAMENTO_EXIBIR_APPCASAMENTO %}
+                  <p>
+                  <a class="btn btn-warning" href="{% url 'core.apps.html' %}">Apps de casamento</a>
+                  </p>
+                  {% endif %}
                 </p>
               </div>
             </div>
@@ -147,6 +149,12 @@
                     class="btn btn-warning"
                     href="{% url 'core.salaodebeleza' %}"
                     >Dicas salão de beleza</a
+                  >
+                </p>
+                <!-- Adicione o botão aqui -->
+                <p>
+                  <a class="btn btn-warning" href="{% url 'quiz' %}"
+                    >Quiz do casal</a
                   >
                 </p>
               </div>
