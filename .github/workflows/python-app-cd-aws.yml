@@ -1,0 +1,58 @@
+name: AnaeTainanCD-AWS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+
+  django:
+    uses: ./.github/workflows/python-app.yml
+
+  deploy_dev:
+    runs-on: ubuntu-latest
+    needs: [django]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Get branch names.
+        id: branch-names
+        uses: tj-actions/branch-names@v8
+
+      - name: Set up Docker Builder
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log into GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+
+      - name: Push to Github Container Registry
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          version: ${{ steps.extract_branch.outputs.branch }}
+          file: Dockerfile
+          push: true
+          tags: "ghcr.io/${{ github.repository }}:${{ steps.branch-names.outputs.default_branch }}"
+
+      # - name: Generate Vault and Deploy Ambiente DEV (AWS)
+      #   shell: bash
+      #   env:
+      #     DJAVUE_VAULT : ${{ secrets.DJAVUE_VAULT }}
+      #     AWS_PRIVATE_KEY : ${{ secrets.AWS_PRIVATE_KEY }}
+      #   run: |
+      #     mkdir -p ~/.ssh
+      #     touch ~/.ssh/private.key
+      #     chmod 600 ~/.ssh/private.key
+      #     echo -e "$AWS_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/private.key
+      #     cd devops/ansible/
+      #     echo "$DJAVUE_VAULT" > djavue-vault.txt
+      #     eval "$(ssh-agent -s)"
+      #     ssh-add ~/.ssh/private.key
+      #     ansible-playbook playbook.yml -i hosts/prod --tags backend --vault-pass-file djavue-vault.txt --private-key ~/.ssh/private.key

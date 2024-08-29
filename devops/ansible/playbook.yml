@@ -1,0 +1,8 @@
+---
+- hosts: [prod]
+  roles:
+    - { role: docker, tags: [docker] }
+    - { role: nginx, tags: [nginx] }
+    - { role: backend, tags: [backend] }
+    - { role: nginxenable, tags: [nginxenable] }
+
