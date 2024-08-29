@@ -41,18 +41,18 @@ jobs:
           push: true
           tags: "ghcr.io/${{ github.repository }}:${{ steps.branch-names.outputs.default_branch }}"
 
-      # - name: Generate Vault and Deploy Ambiente DEV (AWS)
-      #   shell: bash
-      #   env:
-      #     DJAVUE_VAULT : ${{ secrets.DJAVUE_VAULT }}
-      #     AWS_PRIVATE_KEY : ${{ secrets.AWS_PRIVATE_KEY }}
-      #   run: |
-      #     mkdir -p ~/.ssh
-      #     touch ~/.ssh/private.key
-      #     chmod 600 ~/.ssh/private.key
-      #     echo -e "$AWS_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/private.key
-      #     cd devops/ansible/
-      #     echo "$DJAVUE_VAULT" > djavue-vault.txt
-      #     eval "$(ssh-agent -s)"
-      #     ssh-add ~/.ssh/private.key
-      #     ansible-playbook playbook.yml -i hosts/prod --tags backend --vault-pass-file djavue-vault.txt --private-key ~/.ssh/private.key
+      - name: Generate Vault and Deploy Ambiente DEV (AWS)
+        shell: bash
+        env:
+          DJAVUE_VAULT : ${{ secrets.DJAVUE_VAULT }}
+          AWS_PRIVATE_KEY : ${{ secrets.AWS_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          touch ~/.ssh/private.key
+          chmod 600 ~/.ssh/private.key
+          echo -e "$AWS_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/private.key
+          cd devops/ansible/
+          echo "$DJAVUE_VAULT" > djavue-vault.txt
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/private.key
+          ansible-playbook playbook.yml -i hosts/prod --tags backend --vault-pass-file djavue-vault.txt --private-key ~/.ssh/private.key
