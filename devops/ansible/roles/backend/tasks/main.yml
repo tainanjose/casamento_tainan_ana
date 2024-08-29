@@ -30,7 +30,7 @@
       DATABASE_URL: "postgres://{{ database_user }}:{{ database_password }}@{{ database_host }}:{{ database_port }}/{{ database_name }}"
       ALLOWED_HOSTS: "{{ allowed_hosts }}"
       CSRF_TRUSTED_ORIGINS: "https://{{ allowed_hosts }},http://{{ allowed_hosts }}"
-      DJ_CASAMENTO_MODO_SAVE_THE_DATE: "True"
+      DJ_CASAMENTO_MODO_SAVE_THE_DATE: "False"
       DJ_EMAIL_NOTIFICATIONS: "False"
       DJ_CASAMENTO_LOCAL: "Capela Nossa Senhora da Paz"
       DJ_CASAMENTO_EXIBIR_HOTEIS: "False"
