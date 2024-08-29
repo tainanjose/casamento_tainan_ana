@@ -43,5 +43,6 @@ class ConfirmacaoRedirectView(RedirectView):
         self.url = reverse("rsvp.confirmacaohome")
         return redirect(self.url)
 
+
 class QuizView(TemplateView):
     template_name = "core/quiz.html"

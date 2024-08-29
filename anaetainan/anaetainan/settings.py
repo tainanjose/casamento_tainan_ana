@@ -106,7 +106,7 @@ DJ_CASAMENTO_EXIBIR_HOTEIS = config(
     "DJ_CASAMENTO_EXIBIR_HOTEIS", default=True, cast=bool
 )
 DJ_CASAMENTO_EXIBIR_APPCASAMENTO = config(
-"DJ_CASAMENTO_EXIBIR_HOTEIS", default=True, cast=bool
+    "DJ_CASAMENTO_EXIBIR_HOTEIS", default=True, cast=bool
 )
 DJ_CASAMENTO_STD_MSG1 = config("DJ_CASAMENTO_STD_MSG1", default="SAVE THE DATE")
 DJ_CASAMENTO_STD_MSG2 = config(
