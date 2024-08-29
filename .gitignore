@@ -24,6 +24,13 @@ staticfiles/
 /mariaejose.log
 /apimock/node_modules
 
+# terraform, ansible & devops
+devops/infra/prod/prod
+.terraform/
+.terraform*
+*.tfstate
+*.pem
+devops/ansible/*-vault.txt
 
 # C extensions
 *.so
