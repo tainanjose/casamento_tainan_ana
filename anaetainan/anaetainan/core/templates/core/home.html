@@ -21,7 +21,7 @@
         <i class="fa fa-heart" style="font-size: 56px"></i>
         <h1 class="heading">
           {{ DJ_CASAMENTO_DE_UM_LADO }}
-          <span style="color: yellow">&</span> {{ DJ_CASAMENTO_DO_OUTRO }}
+          <span style="color: yellow">&</span> {{DJ_CASAMENTO_DO_OUTRO }}
         </h1>
         <input
           type="hidden"
@@ -140,7 +140,7 @@
                   <a
                     class="btn btn-warning"
                     href="{% url 'core.dicasdehoteis' %}"
-                    >Dicas de hotéis</a
+                    >Dicas de hoteis</a
                   >
                 </p>
                 {% endif %}
@@ -151,7 +151,7 @@
                     >Dicas salão de beleza</a
                   >
                 </p>
-                <!-- Adição do botão para o Quiz -->
+                <!-- Adicione o botão aqui -->
                 <p>
                   <a class="btn btn-warning" href="{% url 'quiz' %}"
                     >Quiz do casal</a
@@ -179,8 +179,7 @@
   </div>
 </div>
 
-{% endblock %}
-{% block extrajs_bottom %}
+{% endblock %} {% block extrajs_bottom %}
 <script type="text/javascript">
   $(window).load(function () {
     "use strict";

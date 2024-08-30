@@ -3,12 +3,13 @@ import logging
 
 from django.views.generic import TemplateView, RedirectView
 from django.conf import settings
-from django.shortcuts import redirect, reverse
-
+from django.shortcuts import reverse
 
 from ..fotos.models import Fotos
-from django.shortcuts import render
+
+from django.shortcuts import render, redirect
 from .models import QuizResult
+
 
 logger = logging.getLogger(__name__)
 
@@ -47,10 +48,6 @@ class ConfirmacaoRedirectView(RedirectView):
         return redirect(self.url)
 
 
-class QuizView(TemplateView):
-    template_name = "core/quiz.html"
-
-
 def quiz_view(request):
     if request.method == "POST":
         correct_answers = {
@@ -74,12 +71,12 @@ def quiz_view(request):
         result = QuizResult(nome=nome, time=time, score=score)
         result.save()
 
-        # Redireciona para a página de resultados com o ranking atualizado
+        # Redireciona para a página de resultados
         return redirect("quiz_result")
 
-    return render(request, "core/quiz.html")
+    return render(request, "quiz.html")
 
 
 def quiz_result(request):
     ranking = QuizResult.objects.all().order_by("-score")  # Ordena pelo score
-    return render(request, "core/quiz_result.html", {"ranking": ranking})
+    return render(request, "quiz_result.html", {"ranking": ranking})

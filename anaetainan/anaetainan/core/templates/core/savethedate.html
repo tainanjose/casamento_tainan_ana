@@ -1,0 +1,132 @@
+{% extends 'core/base_core.html' %}
+
+{% load static %}
+
+{% block extracss %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Fredericka+the+Great&display=swap');
+
+  .std-text-color {
+    color: #2d2d2d;
+  }
+
+  .std-text-gray {
+    color: #505050;
+  }
+
+  .text-lg {
+    font-size: 12vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  .text-md {
+    font-size: 6vw;
+  }
+
+  .text-sm {
+    font-size: 2.8vw;
+  }
+
+  .py-8 {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .pt-8 {
+    padding-top: 28px;
+  }
+
+  .pb-7 {
+    padding-bottom: 14px;
+  }
+
+  /** mobile - small devices **/
+  @media only screen and (max-width: 600px) {
+    .py-8 {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .pt-8 {
+      padding-top: 12px;
+    }
+
+    .text-lg {
+      font-size: 14vw;
+    }
+
+    .text-md {
+      font-size: 9vw;
+    }
+
+    .text-sm {
+      font-size: 6vw;
+    }
+  }
+
+  .charm-font {
+    font-family: "Charm", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .fredericka-font {
+    font-family: "Fredericka the Great", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+</style>
+{% endblock extracss %}
+
+{% block content %}
+
+<section style="background-color: #FFF; overflow-y: scroll; height: 100%;">
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12" style="text-align: center;">
+
+        <figure class="py-8">
+          <img src="{% static 'themes/default/img/save-the-date-top.jpg' %}"
+            style="width: 84%!important;height: auto!important;">
+        </figure>
+
+        {% if to %}
+        <h1 class="text-sm std-text-gray pb-7">{{ to }},</h1>
+        {% endif %}
+
+        <h2 class="std-text-color charm-font text-md">{{ DJ_CASAMENTO_STD_MSG1 }}</h2>
+
+
+        <h1 class="std-text-color fredericka-font text-lg">{{ DJ_CASAMENTO_DE_UM_LADO }}</h1>
+        <figure style="padding-top: 8px; padding-bottom: 8px;">
+          <img src="{% static 'themes/default/img/save-the-date-and.jpg' %}"
+            style="width: 64%!important;height: auto!important;">
+        </figure>
+        <h1 class="std-text-color fredericka-font text-lg">{{ DJ_CASAMENTO_DO_OUTRO }}</h1>
+
+        <h4 class="std-text-color charm-font text-sm">{{ DJ_CASAMENTO_STD_MSG2 }}</h4>
+        <h3 class="std-text-color charm-font text-md">{{ DJ_CASAMENTO_DATE|date:"d/M/Y" }}</h3>
+        <h3 class="std-text-color charm-font text-sm">{{ DJ_CASAMENTO_CIDADE }}</h3>
+
+        <h5 class="std-text-color text-sm pt-8">{{ DJ_CASAMENTO_STD_MSG3 }}</h5>
+
+        <figure class="py-8">
+          <img src="{% static 'themes/default/img/save-the-date-bottom.jpg' %}"
+            style="width: 84%!important;height: auto!important;">
+        </figure>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+{% endblock content %}
+
+{% block footer_bottom %}
+{% endblock footer_bottom %}

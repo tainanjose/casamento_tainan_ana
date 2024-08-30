@@ -1,0 +1,99 @@
+{% extends 'core/base_core.html' %} {% load static %} {% load floppyforms %}
+{%block content %}
+
+<section id="about" class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class="section-title">Salão de Beleza em Juiz de Fora</h3>
+        <div class="section-title-border"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Salões próximos da Capela</h2>
+        <h3>
+          -
+          <a
+            target="_blank"
+            href="https://www.instagram.com/priscilaestudiodebeleza/?igshid=YmMyMTA2M2Y%3D"
+          >
+            Priscila Fernandes Estúdio de Beleza</a
+          >
+        </h3>
+        <p>
+          R. Tomás Gonzaga, 290 - Francisco Bernardino -
+          <strong>(32) 98877-9294</strong><br />
+        </p>
+
+        <h3>
+          -
+          <a
+            target="_blank"
+            href="https://www.instagram.com/rodrigocardosoeequipe/"
+          >
+            Salão Rodrigo Cardoso e Equipe</a
+          >
+        </h3>
+        <p>
+          Rua: Thomaz Gonzaga numero 28 - Francisco Bernardino -
+          <strong>(32) 3223-8487</strong><br />
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>
+          Quem quiser pode consultar o mapa abaixo e ver uma lista de outros
+          salões próximo a Capela.
+        </h2>
+        <h4>
+          <strong
+            ><a
+              target="_blank"
+              href="https://www.google.com/localservices/prolist?g2lbs=AOHF13mZjSHFsI-wJXtaXqAe93kCPnVMLqVlz-2hgL69hU7k3mWvsfJnSb9Wocws2d47RYJZ5xxrswP2-8twTGYssziEel_o-k_kelpBhu2x4ETgKkdg7xM%3D&hl=pt-BR&gl=br&ssta=1&q=sal%C3%A3o%20de%20beleza%20francisco%20bernardino%20juiz%20de%20fora&oq=sal%C3%A3o%20de%20beleza%20francisco%20bernardino%20juiz%20de%20fora&slp=MgBSAggCYAGSAaYCCg0vZy8xMWdncm00N2JwCg0vZy8xMWdoMnNxdGhuCg0vZy8xMWZ6YjB2OWdoCg0vZy8xMWZ4ZG4wa2t4Cg0vZy8xMWY0cW03a3ltCg0vZy8xMXFnNDdsdHhtCg0vZy8xMWg3NjRkM3IxCg0vZy8xMWYzaGtycnBuCg0vZy8xMWdwbWhweXl3CgsvZy8xdGY2c192dAoNL2cvMTFmbWswejE4bQoNL2cvMTFnaDJwdzRmNQoLL2cvMXRoMWR5bmoKDS9nLzExdmY5X2R3N3YKDS9nLzExZjM4d2pjeXgKDS9nLzExa180NzFsbGQKDS9nLzExcmZyMnIxeGcKDS9nLzExZm53MWN2aHkKDS9nLzExczl2dHAwam0KCy9nLzF0Z2hxdDBnmgEGCgIXGRAB&src=2&serdesk=1&sa=X&ved=2ahUKEwi6hYCiq_WHAxU2lJUCHWusNJwQtgN6BAgnEAE&scp=ChFnY2lkOmJlYXV0eV9zYWxvbhJWEhIJydmZfRycmAARtPO8jtzwMAIaEgmhXfjhQ5yYABFopKCzJrA2YiIURnJhbmNpc2NvIEJlcm5hcmRpbm8qFA0hyAjzFej5H-YdDu4L8yXfViPmMAAaEHNhbMOjbyBkZSBiZWxlemEiMnNhbMOjbyBkZSBiZWxlemEgZnJhbmNpc2NvIGJlcm5hcmRpbm8ganVpeiBkZSBmb3JhKhBTYWzDo28gZGUgQmVsZXph"
+              ><i class="fa fa-map-marker"></i> Ver mapa com salões de beleza</a
+            ></strong
+          >
+        </h4>
+        <h3>
+          <small
+            >Nota: Pesquisando você poderá encontrar opções melhores do que as
+            apresentadas aqui...</small
+          >
+        </h3>
+        <p><br /></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <center>
+          <p><br /></p>
+          <p>
+            <a class="btn btn-default btn-lg" href="{% url 'core.showhome' %}"
+              >Ir para página principal</a
+            >
+            <a
+              class="btn btn-warning btn-lg"
+              href="{% url 'core.dicasdehoteis' %}"
+              >Dicas de hoteis</a
+            >
+          </p>
+        </center>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %} {# prettier-ignore #} {% block extrajs_bottom %}
+<script type="text/javascript">
+  $(window).load(function () {
+    "use strict";
+    $("body").delay(350).css({
+      overflow: "visible",
+    });
+  });
+</script>
+{% endblock extrajs_bottom %}

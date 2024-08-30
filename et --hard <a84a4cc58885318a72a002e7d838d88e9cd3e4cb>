@@ -1,0 +1,101 @@
+[33mcommit a84a4cc58885318a72a002e7d838d88e9cd3e4cb[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: tainanjose <tainansilva30@yahoo.com.br>
+Date:   Wed Aug 21 16:51:31 2024 -0300
+
+    Coloquei o APPS DE CASAMENTO como variavel e deixei False, pois inicialmente não vamos utilizar, criei um Quiz sobre nós, apenas como uma brincadeira com os convidados e adicionei na home
+
+[33mcommit ab927cd9bf2febb50e9e8f48b82696a3fe9c75a1[m
+Author: tainanjose <tainansilva30@yahoo.com.br>
+Date:   Thu Aug 15 09:01:47 2024 -0300
+
+    deixei a variavel dica de hotel off, alterei alguns textos para ficar personalizado para nosso casamento, troquei imagens da capela e informações, atualizei os links de acordo com nosso casamento também.
+
+[33mcommit bd3cf16cb9848d1d317856cf25a9f16b3daa5299[m
+Author: Tainan Jose da Silva <tainansilva30@yahoo.com.br>
+Date:   Tue Jul 9 11:00:43 2024 -0300
+
+    troca da imagem de fundo
+
+[33mcommit af7c3d5cba7d2840e4f04bd5960101dfa8c27875[m
+Author: Roger Camargo <huogerac@gmail.com>
+Date:   Wed May 8 15:53:22 2024 -0300
+
+    Permite adicionar imagem como string Issue #10
+
+[33mcommit fb771644ac2d8e69b4f1fdab06e101c9002c6bf9[m
+Merge: 9b4f0f6 3f06791
+Author: tainanjose <164398277+tainanjose@users.noreply.github.com>
+Date:   Fri Apr 19 11:18:17 2024 -0300
+
+    Merge pull request #9 from tainanjose/issue8_save_the_date
+    
+    Issue #8 Permite mudar conteúdo da página SAVE THE DATE!
+
+[33mcommit 3f067918849559ff3f03b61ef5c59a361e7e347e[m[33m ([m[1;31morigin/issue8_save_the_date[m[33m)[m
+Author: Roger Camargo <huogerac@gmail.com>
+Date:   Fri Apr 19 11:06:48 2024 -0300
+
+    Issue #8 Permite mudar conteúdo da página SAVE THE DATE!
+
+[33mcommit 9b4f0f6eed765cbee4ce6e50295fdea3a194d94c[m
+Author: Roger Camargo <huogerac@gmail.com>
+Date:   Thu Apr 18 16:36:25 2024 -0300
+
+    adiciona arquivos staticos que nao estavam sendo enviado...
+
+[33mcommit b6f985bafab82ffdb417f342738f43f3d8a6226f[m
+Merge: db182e3 39a7c1e
+Author: tainanjose <164398277+tainanjose@users.noreply.github.com>
+Date:   Thu Apr 18 16:20:20 2024 -0300
+
+    Merge pull request #4 from tainanjose/issue3_fix_na_presente
+    
+    fix no cadastro de nova intenção de presente Issue #3
+
+[33mcommit 39a7c1e915fc28c539349b3d3152548018f7a637[m[33m ([m[1;31morigin/issue3_fix_na_presente[m[33m)[m
+Author: Roger Camargo <huogerac@gmail.com>
+Date:   Thu Apr 18 16:09:20 2024 -0300
+
+    fix no cadastro de nova intenção de presente Issue #3
+
+[33mcommit db182e366d2513b9d8f5db9a7879b61d7be62f8d[m
+Author: Roger Camargo <huogerac@gmail.com>
+Date:   Wed Mar 27 21:53:05 2024 -0300
+
+    FIX de como obter settings nos templates
+
+[33mcommit f431c58e3573db810664c6de08dc043b844ac010[m
+Author: Roger Camargo <huogerac@gmail.com>
+Date:   Wed Mar 27 21:27:32 2024 -0300
+
+    Fix na lista de presentes
+
+[33mcommit 87a2a491af3f9652466a6c010765bf60a2d9fcd2[m
+Author: Roger Camargo <huogerac@gmail.com>
+Date:   Wed Mar 27 20:52:38 2024 -0300
+
+    Fix model de fotos e dependencia do floppyforms
+
+[33mcommit fc3ff20285dc879a2fd822e3f1a3becb70ea3da1[m
+Author: Roger Camargo <huogerac@gmail.com>
+Date:   Fri Mar 22 20:53:58 2024 -0300
+
+    fix no teste api
+
+[33mcommit 99ba9d75186e6dcd3c0647562de733271a9ef280[m
+Author: Roger Camargo <huogerac@gmail.com>
+Date:   Fri Mar 22 20:45:28 2024 -0300
+
+    adiciona app listapresentes e roteiros. Fix nos testes e linter
+
+[33mcommit ba73544620a58c3bd15c52c78540437fbb5c53e4[m
+Author: Roger Camargo <huogerac@gmail.com>
+Date:   Thu Mar 21 22:52:19 2024 -0300
+
+    permite rodar a home. TODO falta arrumar os links para as outras páginas
+
+[33mcommit 736e43820ed0ea5c8966c088f6190a1171346f16[m
+Author: Roger Camargo <huogerac@gmail.com>
+Date:   Thu Mar 21 19:23:18 2024 -0300
+
+    Versao inicial

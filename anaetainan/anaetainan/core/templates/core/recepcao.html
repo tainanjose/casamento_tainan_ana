@@ -11,30 +11,23 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <h1>CONFIRMAR PRESENÇA</h1>
-        <h2>
-          É muito importante que, aqueles que receberam o convite menor,
-          confirmem presença em nossa recepção até o dia 05/10/2024.
-        </h2>
-
         <h2><strong>Granja da Família BOSICH</strong></h2>
         <h3>Ewbank da Câmara - MG</h3>
         <h3>
-          Logo após o segundo radar de 30KM que tem em Ewbank, vire à direita e
+          Logo após o segundo radar de 30KM que tem em Ewbank, vira a direita e
           são 3 minutos de estrada.
         </h3>
         <p>
-          Para facilitar, é só clicar em "Ver no mapa" que já colocamos a
-          localização saindo da Cerimônia e seguindo para a Recepção.
+          Para facilitar é só clicar no link abaixo que já colocamos a
+          localização saindo da Cerimonia e seguindo para a Recepção
         </p>
         <h4>
           <strong>
             <a
               target="_blank"
               href="https://www.google.com.br/maps/dir/Capela+Nossa+Senhora+da+Paz+-+R.+Jo%C3%A3o+Leite+de+Oliveira,+319+-+Encosta+do+Sol,+Juiz+de+Fora+-+MG,+36083-012/-21.5388825,-43.5008358/@-21.5446673,-43.5045813,15.75z/data=!4m8!4m7!1m5!1m1!1s0x989c045f04c72f:0xf5123204c2c4710!2m2!1d-43.4003091!2d-21.7389039!1m0?entry=ttu"
+              ><i class="fa fa-map-marker"></i> Ver mapa</a
             >
-              <i class="fa fa-map-marker"></i> Ver mapa
-            </a>
           </strong>
         </h4>
       </div>
@@ -47,8 +40,6 @@
           <img
             width="100%"
             src="{% static 'themes/default/img/imagem-restaurante.png' %}"
-            alt="Imagem do Restaurante"
-            style="border-radius: 8px; border: 3px solid #f8c471"
           />
         </p>
       </div>
@@ -63,10 +54,8 @@
             <a class="btn btn-default btn-lg" href="{% url 'core.showhome' %}"
               >Ir para página principal</a
             >
-            <a
-              class="btn btn-success btn-lg whatsapp-btn"
-              href="https://wa.me/5532991421203?text=Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20na%20recep%C3%A7%C3%A3o%20do%20casamento%20de%20voc%C3%AAs!%0ADia%2016/11/2024%0AHor%C3%A1rio:%2019:30h%0A%0AGranja%20da%20Familia%20Bosich%20-%20Ewbank"
-              >Confirmar presença na recepção</a
+            <a class="btn btn-default btn-lg" href="{% url 'core.rsvp' %}"
+              >Confirmar Presença</a
             >
           </p>
         </center>
@@ -74,7 +63,6 @@
     </div>
   </div>
 </section>
-
 {% endblock content %} {% block extrajs_bottom %}
 <script type="text/javascript">
   $(window).load(function () {

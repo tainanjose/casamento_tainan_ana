@@ -1,7 +1,7 @@
 from django.urls import path
 from django.views.generic import TemplateView
-from .views import quiz_view, quiz_result
 from . import views
+from .views import quiz_view, quiz_result
 
 urlpatterns = [
     path(
@@ -33,8 +33,8 @@ urlpatterns = [
         name="core.salaodebeleza",
     ),
     path(
-        "restaurante/",
-        TemplateView.as_view(template_name="core/restaurante.html"),
+        "recepcao/",
+        TemplateView.as_view(template_name="core/recepcao.html"),
         name="core.restaurante",
     ),
     path(
@@ -43,6 +43,8 @@ urlpatterns = [
         name="core.avisoconfirmacao",
     ),
     path("", views.ShowHomeView.as_view(), name="core.showhome"),
+    path("rsvp/", views.rsvp, name="rsvp"),
+    path("success/", views.success, name="success"),
     path("quiz/", quiz_view, name="quiz"),
     path("quiz/result/", quiz_result, name="quiz_result"),
 ]
