@@ -14,6 +14,13 @@
     height: calc(100vh - 110px);
     overflow-y: scroll;
   }
+
+  .bank-account {
+    border: 2px solid #4CAF50; /* Borda em torno das contas bancárias */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+  }
 </style>
 {% endblock extracss %}
 
@@ -38,15 +45,17 @@
 
         <h3><strong>{{ object.nome }}</strong>,</h3>
         <h3>
-          Por favor, transferir o valor de <small>R$</small><strong>{{ object.valor }}</strong> para uma das nossas
-          contas bancárias listada abaixo:
+          Você pode transferir o valor de <small>R$</small><strong>{{ object.valor }}</strong> para uma das nossas
+          contas bancárias listada abaixo ou escolher a opção de pagamento com cartão de crédito mais abaixo:
         </h3>
 
         {% for conta in contas %}
-        <h2><i class="fa fa-angle-right"></i> {{ conta.nome_banco }}</h2>
-        <h4><small>Favorecido:</small> {{ conta.favorecido }} - <small>CPF:</small> {{ conta.cpf }}</h4>
-        <h4><small>ag:</small> {{ conta.agencia }} <small>cc:</small> {{ conta.conta }} </h4>
-        <h4><small>CHAVE PIX:</small> {{ conta.chave_pix }}</h4>
+        <div class="bank-account">
+          <h2><i class="fa fa-angle-right"></i> {{ conta.nome_banco }}</h2>
+          <h4><small>Favorecido:</small> {{ conta.favorecido }} - <small>CPF:</small> {{ conta.cpf }}</h4>
+          <h4><small>ag:</small> {{ conta.agencia }} <small>cc:</small> {{ conta.conta }} </h4>
+          <h4><small>CHAVE PIX:</small> {{ conta.chave_pix }}</h4>
+        </div>
 
         {% if not forloop.last %}
         <center>
@@ -57,17 +66,24 @@
         {% endfor %}
 
         <br />
-        <h3>Muito obrigado.</h3>
+        <h3>Muito obrigado por viver esse momento com a gente!</h3>
         <br />
         <p>Observações:</p>
         <p>- Os <strong>{{ object.centavos }}</strong> centavos do valor transferido é como iremos identificar a sua
-          transferência.</p>
+          transferência.<br>
+          - Ao optar pelo cartão de crédito clicando no link abaixo, será encaminhado para a página do Mercado Pago.
+        </p>
+        
+
 
       </div>
       <div class="col-xs-12">
         <center>
           <p>
             <a class="btn btn-default btn-lg" href="{% url 'core.showhome' %}">Ir para página principal</a>
+            <a class="btn btn-primary btn-lg" href="https://link.mercadopago.com.br/casamentobiaetainan" target="_blank">
+              Pagar com cartão de crédito
+            </a>
           </p>
         </center>
       </div>
@@ -81,3 +97,4 @@
 {% block extrajs_bottom %}
 
 {% endblock extrajs_bottom %}
+l
